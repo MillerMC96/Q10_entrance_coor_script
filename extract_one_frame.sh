@@ -1,11 +1,14 @@
 #!/bin/bash 
 
 fb=framebuffer.pdb
-cb=coorbuffer
+cb=coorbuffer.txt
 
 for i in {0..3}
 do
-    echo 1 | gmx trjconv -f pull_entrance.xtc -s pull.tpr -dump $i -o $fb
+    echo 1 | gmx trjconv -f pull_entrance.xtc -s pull.tpr -dump $i -o $fb > /dev/null 2>&1
+    #frame count
+    fc=(i+1)
+    echo "frame $fc: " >> $cb
     #SER 66
     grep '20143' $fb >> $cb
     #ALA 63
@@ -22,6 +25,7 @@ do
     grep '22850\|22851\|22852' $fb >> $cb
     #ALA 242
     grep '22831\|22832\|22833' $fb >> $cb
+    #remove framebuffer
+    rm $fb 
 done
 
-rm $fb 
