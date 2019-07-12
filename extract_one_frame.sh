@@ -3,11 +3,11 @@
 fb=framebuffer.pdb
 cb=coorbuffer.txt
 
-for i in {0..3}
+for i in {0..300}
 do
     echo 1 | gmx trjconv -f pull_entrance.xtc -s pull.tpr -dump $i -o $fb > /dev/null 2>&1
     #frame count
-    fc=(i+1)
+    fc=$((i+1))
     echo "frame $fc: " >> $cb
     #SER 66
     grep '20143' $fb >> $cb
