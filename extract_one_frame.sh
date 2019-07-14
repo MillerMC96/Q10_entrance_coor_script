@@ -5,7 +5,7 @@ cb=coorbuffer.txt
 
 for i in {0..300}
 do
-    echo 1 | gmx trjconv -f pull_entrance.xtc -s pull.tpr -dump $i -o $fb > /dev/null 2>&1
+    echo 1 | gmx trjconv -f pull_entrance.xtc -s pull.tpr -dump $i -o $fb &>/dev/null 
     #frame count
     fc=$((i+1))
     echo "frame $fc: " >> $cb
