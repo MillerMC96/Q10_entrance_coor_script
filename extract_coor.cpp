@@ -40,7 +40,6 @@ int main(void)
     std::ofstream coor_output;
     std::ifstream coor_buffer;
     std::vector<coor> coor_group;
-    std::vector<std::string> atoms;
     std::string line;
     std::string type, atom_number, atom_name, resname, chain_name, res_group;
     float x, y, z;
@@ -57,14 +56,17 @@ int main(void)
             continue;
         } else {
             if (resname == "ALA" || resname == "LEU") {
-                for (int i = 0; i < 3; i++) {
+                for (int i = 1; i < 3; i++) {
+                    coor_group.push_back(coor(x, y, z));
                     std::getline(coor_buffer, line);
                     std::istringstream iss(line);
                     iss >> type >> atom_number >> atom_name >> resname >> 
                         chain_name >> res_group >> x >> y >> z;
-                    coor_group.push_back(coor(x, y, z));
                 }
+                coor_group.push_back(coor(x, y, z));
                 coor avg_coor = get_avg_coor(coor_group);
+                /* clear content after every calculation */
+                coor_group.clear();
                 coor_output << resname << " " << res_group << " " << 
                     avg_coor.x << " " << avg_coor.y << " " << avg_coor.z << "\n";
             } else {
