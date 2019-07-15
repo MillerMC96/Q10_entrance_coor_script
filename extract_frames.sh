@@ -18,7 +18,7 @@ do
     #ALA 29
     grep '19649\|19650\|19651' $fb >> $cb
     #PHE 28
-    grep '16937' $fb >> $cb
+    grep '19637' $fb >> $cb
     #MET 246
     grep '22898' $fb >> $cb
     #LEU 243
