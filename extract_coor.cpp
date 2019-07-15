@@ -17,9 +17,10 @@ class coor
         float x, y ,z;
 };
 
+/* take avg of three points */
 class coor get_avg_coor(std::vector<coor>& input)
 {
-    float x, y, z;
+    float x = 0, y = 0, z = 0;
 
     for (int i = 0; i < 3; i++) {
         x += input[i].x;
@@ -51,6 +52,8 @@ int main(void)
         std::istringstream iss(line);
         if (!(iss >> type >> atom_number >> atom_name >> resname >> chain_name 
             >> res_group >> x >> y >> z)) {
+            /* if it's frame number */
+            coor_output << line << "\n";
             continue;
         } else {
             if (resname == "ALA" || resname == "LEU") {
@@ -62,7 +65,11 @@ int main(void)
                     coor_group.push_back(coor(x, y, z));
                 }
                 coor avg_coor = get_avg_coor(coor_group);
-                std::cout << avg_coor.x << " " << avg_coor.y << " " << avg_coor.z << std::endl;
+                coor_output << resname << " " << res_group << " " << 
+                    avg_coor.x << " " << avg_coor.y << " " << avg_coor.z << "\n";
+            } else {
+                coor_output << resname << " " << res_group << " " << x << " " << y << " " <<
+                    z << "\n";
             }
         }
     }
