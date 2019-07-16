@@ -2,7 +2,7 @@
 
 fb=framebuffer.pdb
 cb=coorbuffer.txt
-tr=pull_inside.xtc
+tr=pull_whole.xtc
 
 for i in {0..300}
 do
