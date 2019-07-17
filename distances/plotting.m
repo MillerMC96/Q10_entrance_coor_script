@@ -12,6 +12,9 @@ distance = [distance, temp];
 move_mean = movmean(distance(2, :), 10);
 
 hold
-
+title('Distance between ALA63 and PHE28 over time')
+ylabel('Distance [Å]')
+xlabel('Time [ps]')
 plot(distance(1, :), distance(2, :), 'b.')
 plot(distance(1, :), move_mean, 'r-', 'LineWidth', 2)
+legend('distance', 'moving average over 10 ps')
