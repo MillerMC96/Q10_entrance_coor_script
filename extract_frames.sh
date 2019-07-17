@@ -1,7 +1,7 @@
 #!/bin/bash 
 
 fb=framebuffer.pdb
-cb=coorbuffer.txt
+cb=coorbuffer_inside.txt
 tr=pull_whole.xtc
 
 for i in {0..300}
