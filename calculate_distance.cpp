@@ -35,7 +35,7 @@ double get_distance(std::vector<coor>& couple)
     return sqrt(dist_sq);
 }
 
-int main(void)
+int main(int argc, char* argv[])
 {
     std::ifstream coor_file;
     std::ofstream distance_file;
@@ -45,8 +45,8 @@ int main(void)
     double distance;
     int frame_number = 1;
 
-    coor_file.open("coor_output.txt");
-    distance_file.open("dist_vs_time.txt");
+    coor_file.open(argv[1]);
+    distance_file.open(argv[2]);
 
     while (std::getline(coor_file, line)) {
         std::stringstream iss(line);

@@ -35,7 +35,7 @@ class coor get_avg_coor(std::vector<coor>& input)
     return coor(x, y, z);
 }
 
-int main(void)
+int main(int argc, char* argv[])
 {
     std::ofstream coor_output;
     std::ifstream coor_buffer;
@@ -44,8 +44,8 @@ int main(void)
     std::string type, atom_number, atom_name, resname, chain_name, res_group;
     float x, y, z;
 
-    coor_buffer.open("coorbuffer.txt");
-    coor_output.open("coor_output.txt");
+    coor_buffer.open(argv[1]);
+    coor_output.open(argv[2]);
 
     while (std::getline(coor_buffer, line)) {
         std::istringstream iss(line);
