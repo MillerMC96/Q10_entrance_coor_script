@@ -37,6 +37,12 @@ double get_distance(std::vector<coor>& couple)
 
 int main(int argc, char* argv[])
 {
+    if (argc < 3) {
+        std::cout << "Usage: ./calculate_distance input output" << std::endl;
+
+        return -1;
+    }
+
     std::ifstream coor_file;
     std::ofstream distance_file;
     std::string line, resname, ID;
