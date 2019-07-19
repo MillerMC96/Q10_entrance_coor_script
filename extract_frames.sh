@@ -6,7 +6,7 @@ tr=$1
 #coordinate buffer
 cb=$2
 #topology
-tpr=trj/pull.tpr
+tpr=$3
 
 for i in {0..300}
 do
