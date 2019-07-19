@@ -7,8 +7,10 @@ tr=$1
 cb=$2
 #topology
 tpr=$3
+#frame count
+fr=$4
 
-for i in {0..300}
+for i in {0..$fr}
 do
     echo 1 | gmx trjconv -f $tr -s $tpr -dump $i -o $fb &>/dev/null 
     #frame count
