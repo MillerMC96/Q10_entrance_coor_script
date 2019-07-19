@@ -1,12 +1,16 @@
 #!/bin/bash 
 
 fb=framebuffer.pdb
-cb=coorbuffer_inside.txt
-tr=pull_whole.xtc
+#xtc file
+tr=$1
+#coordinate buffer
+cb=$2
+#topology
+tpr=trj/pull.tpr
 
 for i in {0..300}
 do
-    echo 1 | gmx trjconv -f $tr -s pull.tpr -dump $i -o $fb &>/dev/null 
+    echo 1 | gmx trjconv -f $tr -s $tpr -dump $i -o $fb &>/dev/null 
     #frame count
     fc=$((i+1))
     echo "frame $fc: " >> $cb
