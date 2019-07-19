@@ -34,7 +34,7 @@ distance = [distance, temp];
 move_mean = movmean(distance(2, :), 10);
 figure
 hold
-title('Distance between ALA63 and PHE28 over time')
+title('Distance between ALA243 and ALA29 over time')
 ylabel('Distance [Å]')
 xlabel('Time [ps]')
 plot(distance(1, :), distance(2, :), 'b.')
