@@ -45,11 +45,16 @@ int main(int argc, char* argv[])
 
     std::ifstream coor_file;
     std::ofstream distance_file;
-    std::string line, resname, ID;
+    std::string line, resname, ID, group1, group2;
     std::vector<coor> coor_couple;
     float x, y, z;
     double distance;
     int frame_number = 1;
+
+    std::cout << "Please enter point 1: ";
+    std::cin >> group1;
+    std::cout << "Please enter point 2: ";
+    std::cin >> group2;
 
     coor_file.open(argv[1]);
     distance_file.open(argv[2]);
@@ -60,7 +65,7 @@ int main(int argc, char* argv[])
             distance_file << frame_number++ << " ";
             continue;
         } else {
-            if (ID == "63" || ID == "28") {
+            if (ID == group1 || ID == group2) {
                 coor_couple.push_back(coor(x, y, z));
             }
 
