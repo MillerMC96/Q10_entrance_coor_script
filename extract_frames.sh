@@ -10,7 +10,7 @@ tpr=$3
 #frame count
 fr=$4
 
-for i in {0..$fr}
+for i in {0..fr}
 do
     echo 1 | gmx trjconv -f $tr -s $tpr -dump $i -o $fb &>/dev/null 
     #frame count
