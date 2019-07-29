@@ -37,8 +37,8 @@ double get_distance(std::vector<coor>& couple)
 
 int main(int argc, char* argv[])
 {
-    if (argc < 3) {
-        std::cout << "Usage: ./calculate_distance input output" << std::endl;
+    if (argc < 4) {
+        std::cout << "Usage: ./calculate_distance input output start_frame" << std::endl;
 
         return -1;
     }
@@ -47,9 +47,12 @@ int main(int argc, char* argv[])
     std::ofstream distance_file;
     std::string line, resname, ID, group1, group2;
     std::vector<coor> coor_couple;
+    std::stringstream char_to_num(argv[3]);
     float x, y, z;
     double distance;
-    int frame_number = 1;
+    int frame_number;
+    /* read frame number from command line */
+    char_to_num >> frame_number;
 
     std::cout << "Please enter point 1: ";
     std::cin >> group1;
