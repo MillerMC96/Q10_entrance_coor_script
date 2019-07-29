@@ -37,6 +37,12 @@ class coor get_avg_coor(std::vector<coor>& input)
 
 int main(int argc, char* argv[])
 {
+    if (argc < 3) {
+        std::cout << "Usage: ./extract_coor input_buffer output" << std::endl;
+
+        return -1;
+    }
+
     std::ofstream coor_output;
     std::ifstream coor_buffer;
     std::vector<coor> coor_group;
