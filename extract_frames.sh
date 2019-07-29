@@ -3,10 +3,10 @@
 fb=framebuffer.pdb
 #xtc file
 tr=$1
-#coordinate buffer
-cb=$2
 #topology
-tpr=$3
+tpr=$2
+#coordinate buffer
+cb=$3
 START=0
 #frame count
 END=$4
