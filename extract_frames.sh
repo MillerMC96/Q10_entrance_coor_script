@@ -3,8 +3,8 @@
 fb=framebuffer.pdb
 #xtc file
 tr=$1
-#topology
-tpr=$2
+#gromacs
+gro=$2
 #coordinate buffer
 cb=$3
 START=0
@@ -12,7 +12,7 @@ START=0
 END=$4
 for (( i=$START; i<$END; i++ ))
 do
-    echo 1 | gmx trjconv -f $tr -s $tpr -dump $i -o $fb &>/dev/null 
+    echo 1 | gmx trjconv -f $tr -s $gro -dump $i -o $fb &>/dev/null 
     #frame count
     fc=$((i+1))
     echo "frame $fc: " >> $cb

@@ -47,7 +47,7 @@ int main(int argc, char* argv[])
     std::ifstream coor_buffer;
     std::vector<coor> coor_group;
     std::string line;
-    std::string type, atom_number, atom_name, resname, chain_name, res_group;
+    std::string type, atom_number, atom_name, resname, res_group;
     float x, y, z;
 
     coor_buffer.open(argv[1]);
@@ -55,8 +55,8 @@ int main(int argc, char* argv[])
 
     while (std::getline(coor_buffer, line)) {
         std::istringstream iss(line);
-        if (!(iss >> type >> atom_number >> atom_name >> resname >> chain_name 
-            >> res_group >> x >> y >> z)) {
+        if (!(iss >> type >> atom_number >> atom_name >> resname >> res_group
+            >> x >> y >> z)) {
             /* if it's frame number */
             coor_output << line << "\n";
             continue;
@@ -67,7 +67,7 @@ int main(int argc, char* argv[])
                     std::getline(coor_buffer, line);
                     std::istringstream iss(line);
                     iss >> type >> atom_number >> atom_name >> resname >> 
-                        chain_name >> res_group >> x >> y >> z;
+                    res_group >> x >> y >> z;
                 }
                 coor_group.push_back(coor(x, y, z));
                 coor avg_coor = get_avg_coor(coor_group);
