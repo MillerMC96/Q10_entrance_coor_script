@@ -36,6 +36,7 @@ plt.plot(time, move_mean, 'r', label="moving average over 10 ps")
 
 #plotting moving std
 plt.plot(time, move_std, 'r', label="moving standard deviation")
+#TODO: add std to original data and plot it
 
 plt.xlabel("time [ps]")
 plt.ylabel("distance [Å]")
