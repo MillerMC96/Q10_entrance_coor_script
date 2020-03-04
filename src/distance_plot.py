@@ -5,10 +5,6 @@ import sys
 dist = list()
 time = list()
 
-#def moving_avg(x, N):
-#    cumsum = np.cumsum(np.insert(x, 0, 0))
-#    return (cumsum[N:] - cumsum[:-N]) / float(N)
-
 fp = open(sys.argv[1])
 
 while fp:
@@ -20,7 +16,7 @@ while fp:
     else:
         break
 N = 10
-move_mean = np.convolve(dist, np.ones((N,))/N, mode = 'same')
+move_mean = np.convolve(dist, np.ones((N,))/N, mode = 'valid')
 plt.scatter(time, dist, s=2)
 plt.hlines(6.525666667, time[0], time[-1], colors='k', linestyles='--', label="crystal structure")
 plt.plot(time, move_mean, 'r', label="moving average over 10 ps")
