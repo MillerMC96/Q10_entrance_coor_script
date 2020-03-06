@@ -35,8 +35,15 @@ plt.hlines(6.525666667, time[0], time[-1], colors='k', linestyles='--', label="c
 plt.plot(time, move_mean, 'r', label="moving average over 10 ps")
 
 #plotting moving std
-plt.plot(time, move_std, 'r', label="moving standard deviation")
-#TODO: add std to original data and plot it
+dist_upper_bound = list()
+dist_lower_bound = list()
+
+for dist_point, std in zip(move_mean, move_std):
+    dist_upper_bound.append(dist_point + std)
+    dist_lower_bound.append(dist_point - std)
+
+plt.plot(time, dist_upper_bound, 'b')
+plt.plot(time, dist_lower_bound, 'b')
 
 plt.xlabel("time [ps]")
 plt.ylabel("distance [Å]")
