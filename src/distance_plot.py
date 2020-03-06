@@ -42,8 +42,8 @@ for dist_point, std in zip(move_mean, move_std):
     dist_upper_bound.append(dist_point + std)
     dist_lower_bound.append(dist_point - std)
 
-plt.plot(time, dist_upper_bound, 'b')
-plt.plot(time, dist_lower_bound, 'b')
+plt.plot(time, dist_upper_bound, 'b', alpha = 0.7)
+plt.plot(time, dist_lower_bound, 'b', alpha = 0.7)
 
 plt.xlabel("time [ps]")
 plt.ylabel("distance [Å]")
