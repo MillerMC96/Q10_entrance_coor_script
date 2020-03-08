@@ -32,7 +32,7 @@ plt.scatter(time, dist, s = 2)
 plt.hlines(6.525666667, time[0], time[-1], colors = 'k', linestyles = '--', label = "crystal structure")
 
 #plotting moving mean
-plt.plot(time, move_mean, 'r', label = "moving average over 10 ps")
+plt.plot(time, move_mean, 'r', label = "moving average over " + str(N) + " ps")
 
 #plotting moving std
 dist_upper_bound = list()
