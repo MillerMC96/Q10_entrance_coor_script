@@ -19,7 +19,7 @@ while fp:
         break
 
 #window
-N = 10
+N = 4
 
 #moving mean
 move_mean = np.convolve(dist, np.ones((N,))/N, mode = 'same')
@@ -44,6 +44,7 @@ for dist_point, std in zip(move_mean, move_std):
 
 plt.fill_between(time, dist_upper_bound, dist_lower_bound, alpha = 0.4, label = "error band")
 
+plt.ylim(3, 13)
 plt.xlabel("time [ps]")
 plt.ylabel("distance [Å]")
 plt.title("distance along the short axis over time")
